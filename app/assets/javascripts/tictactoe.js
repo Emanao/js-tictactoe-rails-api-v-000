@@ -68,7 +68,6 @@ function attachListeners() {
 function resetBoard() {
     currentGameId = null;
     turn = 0;
-<<<<<<< HEAD
     $board.empty();
 }
 
@@ -80,11 +79,6 @@ function previousGames() {
             savedGames.data.forEach(game => $games.append(`<button id=${game.id} onclick="showGame(this)">${game.id}</button></br>`));
         }
     })
-=======
-    cells.map(cell => cell.innerHTML = "");
-    //$("#message").text("")
-
->>>>>>> 2e8af6139fac35e7e68b25200d659ba4ad86c032
 }
 
 function saveGame() {
@@ -99,7 +93,6 @@ function saveGame() {
     }
 }
 
-<<<<<<< HEAD
 $.put = function(url, data) {
     $.ajax({
         url: url,
@@ -116,7 +109,6 @@ function showGame(elem) {
         $("table tr td").map(function(index) { return $(this).text(savedGame[index]) });
     })
 }
-=======
 function attachListeners() {
     cells.map((cell) => cell.addEventListener("click", function() {
         let isCellFree = !cell.innerHTML;
@@ -129,11 +121,3 @@ function attachListeners() {
     $("#previous").click(() => previousGames());
     $("#clear").click(() => resetBoard());
 }
-
-function previousGames() {
-    $.get("/games", function(data) {
-        debugger;
-        console.log(data)
-    })
-}
->>>>>>> 2e8af6139fac35e7e68b25200d659ba4ad86c032
