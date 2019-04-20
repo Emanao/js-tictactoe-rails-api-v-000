@@ -109,17 +109,3 @@ function showGame(elem) {
         $("table tr td").map(function(index) { return $(this).text(savedGame[index]) });
     })
 }
-function attachListeners() {
-    $board.each(function(i) {
-        $(this).click(function() {
-            let isCellFree = !$(this).text();
-            let isEndOfGame = checkWinner() || turn === 9;
-            if (isCellFree && !isEndOfGame) {
-                doTurn(this);
-            }
-        })
-    });
-    $("#save").click(() => saveGame());
-    $("#previous").click(() => previousGames());
-    $("#clear").click(() => resetBoard());
-}
