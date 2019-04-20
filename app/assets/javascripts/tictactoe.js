@@ -40,17 +40,11 @@ function doTurn(htmlTd) {
     updateState(htmlTd);
     turn++;
     if (checkWinner()) {
-<<<<<<< HEAD
         saveGame();
         resetBoard();
     } else if (turn === 9) {
         setMessage("Tie game.");
         saveGame();
-=======
-        resetBoard();
-    } else if (turn === 9) {
-        setMessage("Tie game.");
->>>>>>> 2e8af6139fac35e7e68b25200d659ba4ad86c032
         resetBoard();
     }
 
