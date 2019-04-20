@@ -110,14 +110,16 @@ function showGame(elem) {
     })
 }
 function attachListeners() {
-    cells.map((cell) => cell.addEventListener("click", function() {
-        let isCellFree = !cell.innerHTML;
-        let isEndOfGame = checkWinner() || turn === 9;
-        if (isCellFree && !isEndOfGame) {
-            doTurn(this)
-        }
-    }));
-    $("#save").click(() => console.log("Saved"));
+    $board.each(function(i) {
+        $(this).click(function() {
+            let isCellFree = !$(this).text();
+            let isEndOfGame = checkWinner() || turn === 9;
+            if (isCellFree && !isEndOfGame) {
+                doTurn(this);
+            }
+        })
+    });
+    $("#save").click(() => saveGame());
     $("#previous").click(() => previousGames());
     $("#clear").click(() => resetBoard());
 }
