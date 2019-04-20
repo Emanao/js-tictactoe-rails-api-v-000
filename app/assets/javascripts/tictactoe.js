@@ -87,7 +87,6 @@ function saveGame() {
         $.put(`${root}/${currentGameId}`, { state: board });
     } else {
         $.post(root, { state: board }, function(savedGame) {
-            debugger;
             currentGameId = savedGame.data.id;
         })
     }
